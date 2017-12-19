@@ -1,0 +1,17 @@
+{% extends 'homepage/base.html'%}
+{% block body %}
+{% if all_albums %}
+<h1>albums</h1>
+    <ul>
+      {% for album in all_albums %}
+      <li><a href="/home/{{album.id}}">{{album.title}}</a></li>
+      <div>update</div>
+      <a href="{% url 'album-delete' album.id %}"><div>delete</div></a>
+      {% endfor %}
+    </ul>
+
+{% else %}
+    <p>you don't have no album</p>
+
+{% endif %}
+{% endblock %}
